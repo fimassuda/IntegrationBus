@@ -1,0 +1,23 @@
+
+
+Importing file: D:\Material\IIB\CustomerLegacyService\contracts\CustomerService.wsdl
+
+Copying source WSDL CustomerService.wsdl to CustomerService.wsdl.
+The WSDL import will proceed with bindings CustomerServiceSOAP.
+Creating wsdl schema document for file:///D:/Material/IIB/CustomerLegacyService/contracts/CustomerService.wsdl.
+Parsing wsdl binding {http://workshop.com.br/legado/service}CustomerServiceSOAP.
+Parsing wsdl binding input getCustomer.
+Parsing wsdl binding output getCustomer.
+Processing doc style for operation getCustomer.
+Populating WSDL schema br/com/workshop/contracts/CustomerService.xsd.
+Creating file br/com/workshop/contracts/CustomerService.xsd in the workspace.
+Creating file br/com/workshop/contracts/CustomerService_InlineSchema1.xsd in the workspace.
+Creating file /AdministracaoClienteService/br/com/workshop/contracts/schemas/Customer.xsd in the workspace.
+
+Elapsed time processing this message definition file: 0.472 seconds
+Number of warnings for this message definition file: 0
+
+
+Number of files processed: 1
+
+

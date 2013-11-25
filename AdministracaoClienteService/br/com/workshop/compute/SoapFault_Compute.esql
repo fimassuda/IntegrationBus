@@ -1,0 +1,20 @@
+BROKER SCHEMA br.com.workshop.compute
+
+CREATE COMPUTE MODULE SoapFault_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		DECLARE soapenv NAMESPACE 'http://www.w3.org/2003/05/soap-envelope';
+		DECLARE xml     NAMESPACE 'http://www.w3.org/XML/1998/namespace';
+		DECLARE myNS    NAMESPACE 'http://myNS';
+		
+		SET OutputRoot.SOAP.Context.Namespace.(SOAP.NamespaceDecl)xmlns:soapenv = soapenv;
+		SET OutputRoot.SOAP.Body.soapenv:Fault.faultcode = 'soapenv:Server';
+		SET OutputRoot.SOAP.Body.soapenv:Fault.faultstring = 'AdministracaoCliente error';
+		SET OutputRoot.SOAP.Body.soapenv:Fault.faultactor = 'SOAPFlow';
+		SET OutputRoot.SOAP.Body.soapenv:Fault.detail.Text = 'Erro no servico AdministracaoCliente';
+		
+		RETURN TRUE;
+	END;
+
+END MODULE;

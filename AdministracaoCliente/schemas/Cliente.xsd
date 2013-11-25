@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://workshop.com.br/schemas/cliente"
+	xmlns:tns="http://workshop.com.br/schemas/cliente" 
+	elementFormDefault="qualified"
+	version="1.0">
+	<xsd:annotation>
+		<xsd:documentation>
+			Modelo de cliente
+		</xsd:documentation>
+	</xsd:annotation>
+	
+	<xsd:complexType name="ClienteType">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:integer" minOccurs="0" />
+			<xsd:element name="nome" type="xsd:string" minOccurs="0" />
+			<xsd:element name="email" type="xsd:string" minOccurs="0" />
+			<xsd:element name="sexo" type="tns:SexoType" minOccurs="0" />
+			<xsd:element name="endereco" type="tns:EnderecoType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="SexoType">
+		<xsd:annotation>
+			<xsd:documentation>
+				MASCULINO
+				FEMININO
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="MASCULINO" />
+			<xsd:enumeration value="FEMININO" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:complexType name="EnderecoType">
+		<xsd:sequence>
+			<xsd:element name="rua" type="xsd:string" minOccurs="0" />
+			<xsd:element name="numero" type="xsd:string" minOccurs="0" />
+			<xsd:element name="cidade" type="xsd:string" minOccurs="0" />
+			<xsd:element name="estado" type="xsd:string" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	
+</xsd:schema>

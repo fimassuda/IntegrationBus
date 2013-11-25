@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="br.com.workshop.operations.mapping" version="8.0.4.0" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="br.com.workshop.operations.mapping">
+    <input path="/contracts/AdministracaoCliente_InlineSchema1.xsd"/>
+    <output path="/br/com/workshop/contracts/CustomerService_InlineSchema1.xsd"/>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="ConsultarCliente_Mapping">
+        <input namespace="http://workshop.com.br/ClienteService" path="mb:msg(consultarCliente,assembly,XMLNSC,Properties)"/>
+        <output namespace="http://workshop.com.br/legado/service" path="mb:msg(getCustomer,assembly,XMLNSC,Properties)"/>
+        <move>
+            <input path="Properties"/>
+            <output path="Properties"/>
+        </move>
+        <move>
+            <input path="consultarCliente/idCliente"/>
+            <output path="getCustomer/id"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

@@ -1,0 +1,37 @@
+BROKER SCHEMA br.com.workshop.compute
+DECLARE ns1 NAMESPACE 'http://workshop.com.br/schemas/cliente';
+DECLARE ns4 NAMESPACE 'http://workshop.com.br/legado/service';
+DECLARE ns6 NAMESPACE 'http://workshop.com.br/legacy/schemas/customer';
+DECLARE ns NAMESPACE 'http://workshop.com.br/ClienteService';
+
+
+CREATE COMPUTE MODULE Transformation_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		-- CALL CopyEntireMessage();
+		
+		SET OutputRoot.XMLNSC.ns:consultarClienteResponse.cliente = 
+			SELECT customer.ns6:idCustomer AS ns1:id,
+				   customer.ns6:name AS ns1:nome,
+				   customer.ns6:e_mail AS ns1:email,
+				   customer.ns6:gender AS ns1:sexo,
+				   customer.ns6:street AS ns1:endereco.ns1:rua,
+				   customer.ns6:street_number AS ns1:endereco.ns1:numero,
+				   customer.ns6:city AS ns1:endereco.ns1:cidade,
+				   customer.ns6:state AS ns1:endereco.ns1:estado
+				    FROM InputRoot.XMLNSC.ns4:getCustomerResponse.customer AS customer;
+				    
+		IF OutputRoot.XMLNSC.ns:consultarClienteResponse.cliente.ns1:sexo = 0 THEN
+			SET OutputRoot.XMLNSC.ns:consultarClienteResponse.cliente.ns1:sexo = 'MASCULINO';
+		ELSE
+			SET OutputRoot.XMLNSC.ns:consultarClienteResponse.cliente.ns1:sexo = 'FEMININO';
+		END IF;
+				    
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;

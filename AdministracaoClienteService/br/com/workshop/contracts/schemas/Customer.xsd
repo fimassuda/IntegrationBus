@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema elementFormDefault="qualified" targetNamespace="http://workshop.com.br/legacy/schemas/customer" version="1.0" xmlns:tns="http://workshop.com.br/legacy/schemas/customer" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:annotation>
+		<xsd:documentation>
+			Modelo de cliente - Legado
+		</xsd:documentation>
+	</xsd:annotation>
+	
+	<xsd:complexType name="Customer">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="idCustomer" type="xsd:integer"/>
+			<xsd:element minOccurs="0" name="name" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="e_mail" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="gender" type="tns:Gender"/>
+			<xsd:element minOccurs="0" name="street" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="street_number" type="xsd:integer"/>
+			<xsd:element minOccurs="0" name="city" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="state" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="Gender">
+		<xsd:annotation>
+			<xsd:documentation>
+				0 - MALE
+				1 - FEMALE
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:enumeration value="0"/>
+			<xsd:enumeration value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+</xsd:schema>

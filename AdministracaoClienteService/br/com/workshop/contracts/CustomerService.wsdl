@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CustomerService" targetNamespace="http://workshop.com.br/legado/service" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://workshop.com.br/legado/service" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <generatedXSD location="CustomerService_InlineSchema1.xsd"/>
+        <binding hasEncoding="false" imported="true" name="CustomerServiceSOAP" originalBindingStyle="document"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://workshop.com.br/legado/service" xmlns:pref="http://workshop.com.br/legacy/schemas/customer">
+
+<xsd:import namespace="http://workshop.com.br/legacy/schemas/customer" schemaLocation="schemas/Customer.xsd"/>
+<xsd:include schemaLocation="CustomerService_InlineSchema1.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getCustomerRequest">
+    <wsdl:part element="tns:getCustomer" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getCustomerResponse">
+    <wsdl:part element="tns:getCustomerResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="CustomerService">
+    <wsdl:operation name="getCustomer">
+      <wsdl:input message="tns:getCustomerRequest"/>
+      <wsdl:output message="tns:getCustomerResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomerServiceSOAP" type="tns:CustomerService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getCustomer">
+      <soap:operation soapAction="http://workshop.com.br/legado/service/NewOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerService">
+    <wsdl:port binding="tns:CustomerServiceSOAP" name="CustomerServiceSOAP">
+      <soap:address location="http://localhost:8081/legacy/customer"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
