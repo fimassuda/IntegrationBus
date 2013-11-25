@@ -1,0 +1,23 @@
+
+
+Importing file: D:\Material\IIB\AdministracaoCliente\contracts\AdministracaoCliente.wsdl
+
+Copying source WSDL AdministracaoCliente.wsdl to AdministracaoCliente.wsdl.
+The WSDL import will proceed with bindings AdministracaoClienteSOAP.
+Creating wsdl schema document for file:///D:/Material/IIB/AdministracaoCliente/contracts/AdministracaoCliente.wsdl.
+Parsing wsdl binding {http://workshop.com.br/ClienteService}AdministracaoClienteSOAP.
+Parsing wsdl binding input consultarCliente.
+Parsing wsdl binding output consultarCliente.
+Processing doc style for operation consultarCliente.
+Populating WSDL schema contracts/AdministracaoCliente.xsd.
+Creating file contracts/AdministracaoCliente.xsd in the workspace.
+Creating file contracts/AdministracaoCliente_InlineSchema1.xsd in the workspace.
+Creating file /ModeloCanonico/contracts/schemas/Cliente.xsd in the workspace.
+
+Elapsed time processing this message definition file: 0.757 seconds
+Number of warnings for this message definition file: 0
+
+
+Number of files processed: 1
+
+

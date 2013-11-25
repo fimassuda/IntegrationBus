@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://workshop.com.br/legado/service" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:pref="http://workshop.com.br/legacy/schemas/customer" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://workshop.com.br/legado/service" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+                            	    	    <xsd:import namespace="http://workshop.com.br/legacy/schemas/customer" schemaLocation="schemas/Customer.xsd"/>
+            <xsd:element ibmSchExtn:docRoot="true" name="getCustomer">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="id" type="xsd:string"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+            <xsd:element ibmSchExtn:docRoot="true" name="getCustomerResponse">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="customer" type="pref:Customer"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+        </xsd:schema>

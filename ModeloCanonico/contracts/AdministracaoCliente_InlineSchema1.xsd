@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://workshop.com.br/ClienteService" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:pref="http://workshop.com.br/schemas/cliente" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://workshop.com.br/ClienteService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+                	    	    	    <xsd:import namespace="http://workshop.com.br/schemas/cliente" schemaLocation="schemas/Cliente.xsd"/>
+            <xsd:element ibmSchExtn:docRoot="true" name="consultarCliente">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="idCliente" type="xsd:integer"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+            <xsd:element ibmSchExtn:docRoot="true" name="consultarClienteResponse">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="cliente" type="pref:ClienteType"/>
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+        </xsd:schema>

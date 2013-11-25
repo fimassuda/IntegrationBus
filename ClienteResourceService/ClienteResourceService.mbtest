@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.etools.mft.unittest.core.models.client="http:///com/ibm/etools/mft/unittest/core/models/client.ecore" xmlns:com.ibm.wbit.comptest.common.models.event="http:///com/ibm/etools/mft/unittest/common/models/event.ecore" xmlns:http="http:///com/ibm//etools/mft/unittest/common/model2/http" xmlns:http_1="http:///com/ibm//etools/mft/unittest/common/model2/status" xmlns:jms="http:///com/ibm//etools/mft/unittest/common/model2/jms" xmlns:model2="http:///com/ibm//etools/mft/unittest/common/model2" xmlns:mq="http:///com/ibm//etools/mft/unittest/common/model2/mq">
+  <com.ibm.etools.mft.unittest.core.models.client:EclipseClient iD="1385410353743-169" eventTrace="/1" clientID="1385410353743-169">
+    <scopes xsi:type="model2:FlowTestScope" name="Configuration" iD="default" dirty="false">
+      <testModules xsi:type="model2:TestMsgFlow" name="/ClienteResourceService/br/com/workshop/ClienteResource.msgflow" iD="1385410353743-173">
+        <inputNodes xsi:type="http:HTTPInputNode" nodeName="HTTP Input" urlSpecifier="/cliente"/>
+      </testModules>
+      <testModules xsi:type="model2:TestAppOrLib" name="ClienteResourceService" iD="1385410353743-174"/>
+      <settings xsi:type="model2:FlowSettings"/>
+      <settings xsi:type="model2:DeploymentSettings" runtimeEnvType="Integration Bus v9.0" runtimeInstance="localhost^INDEV^default^0"/>
+      <settings xsi:type="mq:MQSettings"/>
+      <settings xsi:type="jms:JMSSettings"/>
+      <settings xsi:type="mq:MQMessageHeaders"/>
+      <settings xsi:type="jms:JMSMessageHeaders"/>
+      <messageHeaders xsi:type="mq:MQHeader" iD="1385410353743-172" headerName="Default Header"/>
+      <messageHeaders xsi:type="jms:JMSHeader" headerName="Default Header"/>
+    </scopes>
+  </com.ibm.etools.mft.unittest.core.models.client:EclipseClient>
+  <com.ibm.wbit.comptest.common.models.event:ExecutionEventTrace iD="1385410353743-170" children="/2"/>
+  <model2:InteractiveInputNodeInvocationEvent iD="1385410353745-175" readOnly="true" clientID="1385410353743-169" timestamp="1385410353745" children="/3 /4 /7" msgFlow="/ClienteResourceService/br/com/workshop/ClienteResource.msgflow" nodeId="FCMComposite_1_1" testScopeID="default" nodeName="HTTP Input" nodeType="ComIbmWSInput.msgnode" targetDeploymentLocationID="1385410358529-179">
+    <request xsi:type="model2:TestMessage" iD="1385410354081-176">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue=""/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+  <http_1:DeploymentStatus iD="1385410358528-177" parentID="1385410353745-175" timestamp="1385410358528" log="[Info]  Begin deploying message flows&#xD;&#xA;[Info]  Deploying the message flow application&#xD;&#xA;[Info]  Flow is required to be re-deployed because file /ClienteResourceService/.project is not in the generated BAR file.&#xD;&#xA;[Info]  Going to rebuild and deploy broker archive&#xD;&#xA;[Info]  Cleaning Broker Archive...&#xD;&#xA;[Info]  Rebuilding broker archive...&#xD;&#xA;[Info]  Initializing test message monitors...&#xD;&#xA;[Info]  Deploying broker archive to execution group...&#xD;&#xA;[Info]  Test client is ready to send and monitor messages.&#xD;&#xA;[Info]  Starting message flows&#xD;&#xA;[Info]  Message flows deployment successfully completed" status="OK" totalWork="10" worked="10" scope="/0/@scopes.0"/>
+  <com.ibm.wbit.comptest.common.models.event:StartEvent name="Starting" iD="1385410379902-191" readOnly="true" clientID="1385410353743-169" parentID="1385410353745-175" timestamp="1385410379902" invokeCommandId="1385410379901-188" children="/5 /6"/>
+  <http:HTTPInformationEvent name="Sending Message to &quot;HTTP Input&quot;" iD="1385410379953-192" readOnly="true" clientID="1385410353743-169" parentID="1385410379902-191" timestamp="1385410379953" invokeCommandId="1385410379901-189" endpoint="http://localhost:7080/cliente">
+    <message xsi:type="model2:TestMessage" iD="1385410354081-176">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue=""/>
+      <properties name="SHOW_HEX_VIEW" stringValue="false"/>
+      <properties name="linkedFile"/>
+    </message>
+  </http:HTTPInformationEvent>
+  <http:HTTPMonitorExceptionEvent name="Error sending message to &quot;HTTP Input&quot;" iD="1385410381721-194" readOnly="true" clientID="1385410353743-169" parentID="1385410379902-191" timestamp="1385410381721" invokeCommandId="1385410379901-189" module="/ClienteResourceService/br/com/workshop/ClienteResource.msgflow" exceptionText="Error sending request to http &quot;http://localhost:7080/cliente&quot;" trace="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;>&#xA;&lt;SOAP-ENV:Body>&#xA;&lt;SOAP-ENV:Fault>&#xA;&lt;faultcode>SOAP-ENV:Server&lt;/faultcode>&#xA;&lt;faultstring>BIP3113E: Detectada exceÃ§Ã£o no fluxo de mensagens br.com.workshop.ClienteResource (servidor broker INDEV) &lt;/faultstring>&#xA;&lt;faultactor>http://localhost:7080/cliente&lt;/faultactor>&#xA;&lt;detail>&lt;text>Exception. BIP2230E: Foi detectado um erro ao processar uma mensagem no nÃ³ &amp;apos;br.com.workshop.ClienteResource.Route To Label&amp;apos;. : F:\build\slot2\S000_P\src\DataFlowEngine\BasicNodes\ImbRouterNode.cpp: 326: ImbRouterNode::evaluate: ComIbmRouteToLabelNode: br/com/workshop/ClienteResource#FCMComposite_1_2&#xA;BIP4240E: O nÃ³ RouteToLabel &amp;apos;br.com.workshop.ClienteResource.Route To Label&amp;apos; nÃ£o pÃ´de localizar o nÃ³ Label &amp;apos;&amp;apos;POST&amp;apos;&amp;apos;. : F:\build\slot2\S000_P\src\DataFlowEngine\BasicNodes\ImbRouterNode.cpp: 302: ImbRouterNode::evaluate: ComIbmRouteToLabelNode: br/com/workshop/ClienteResource#FCMComposite_1_2&lt;/text>&lt;/detail>&#xA;&lt;/SOAP-ENV:Fault>&#xA;&lt;/SOAP-ENV:Body>&#xA;&lt;/SOAP-ENV:Envelope>" endpoint="http://localhost:7080/cliente"/>
+  <com.ibm.wbit.comptest.common.models.event:EndEvent name="Stopped" iD="1385410381976-195" readOnly="true" clientID="1385410353743-169" parentID="1385410353745-175" timestamp="1385410381976" invokeCommandId="1385410379901-189"/>
+</xmi:XMI>

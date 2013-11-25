@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.etools.mft.unittest.core.models.client="http:///com/ibm/etools/mft/unittest/core/models/client.ecore" xmlns:com.ibm.wbit.comptest.common.models.event="http:///com/ibm/etools/mft/unittest/common/models/event.ecore" xmlns:com.ibm.wbit.comptest.common.models.value="http:///com/ibm/etools/mft/unittest/common/models/value.ecore" xmlns:http="http:///com/ibm//etools/mft/unittest/common/model2/http" xmlns:http_1="http:///com/ibm//etools/mft/unittest/common/model2/status" xmlns:jms="http:///com/ibm//etools/mft/unittest/common/model2/jms" xmlns:model2="http:///com/ibm//etools/mft/unittest/common/model2" xmlns:mq="http:///com/ibm//etools/mft/unittest/common/model2/mq">
+  <com.ibm.etools.mft.unittest.core.models.client:EclipseClient iD="1385332862907-0" eventTrace="/1" clientID="1385332862907-0">
+    <scopes xsi:type="model2:FlowTestScope" name="Configuration" iD="default" dirty="false">
+      <testModules xsi:type="model2:TestMsgFlow" name="/ClienteServiceLegacy/gen/ClienteServiceLegacy.msgflow" iD="1385332862930-4">
+        <inputNodes xsi:type="http:HTTPInputNode" nodeName="SOAP Input" urlSpecifier="/legacy/customer"/>
+      </testModules>
+      <testModules xsi:type="model2:TestAppOrLib" name="ClienteServiceLegacy" iD="1385332862940-5"/>
+      <settings xsi:type="model2:FlowSettings"/>
+      <settings xsi:type="model2:DeploymentSettings" runtimeEnvType="Integration Bus v9.0" runtimeInstance="localhost^INDEV^default^0"/>
+      <settings xsi:type="mq:MQSettings"/>
+      <settings xsi:type="jms:JMSSettings"/>
+      <settings xsi:type="mq:MQMessageHeaders"/>
+      <settings xsi:type="jms:JMSMessageHeaders"/>
+      <messageHeaders xsi:type="mq:MQHeader" iD="1385332862928-3" headerName="Default Header"/>
+      <messageHeaders xsi:type="jms:JMSHeader" headerName="Default Header"/>
+    </scopes>
+  </com.ibm.etools.mft.unittest.core.models.client:EclipseClient>
+  <com.ibm.wbit.comptest.common.models.event:ExecutionEventTrace iD="1385332862907-1" children="/2"/>
+  <model2:InteractiveInputNodeInvocationEvent iD="1385333077384-100" readOnly="true" clientID="1385332862907-0" timestamp="1385333077384" children="/3 /4 /7" msgFlow="/ClienteServiceLegacy/gen/ClienteServiceLegacy.msgflow" nodeId="FCMComposite_1_1" testScopeID="default" nodeName="SOAP Input" nodeType="ComIbmSOAPInput.msgnode" targetDeploymentLocationID="1385332889886-18">
+    <request xsi:type="model2:TestMessage" iD="1385333036882-55">
+      <properties name="messageSource" stringValue="structureView"/>
+      <properties name="SOAP_VERSION" stringValue="SOAP 1.1"/>
+      <properties name="WSDL_URI" stringValue="platform:/resource/ClienteServiceLegacy/CustomerService.wsdl"/>
+      <properties name="WSDL_OPERATION_NAME" stringValue="getCustomer"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText"/>
+      <properties name="SOAP_OPERATION" stringValue="http://workshop.com.br/legado/service/NewOperation"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Envelope" iD="1385333036884-56" type="http://schemas.xmlsoap.org/soap/envelope/#Envelope" typeDisplayText="Envelope" factoryId="WSDL">
+        <properties name="ELEMENT_URI" stringValue="http://schemas.xmlsoap.org/soap/envelope/#Envelope"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Header" iD="1385333036884-57" type="http://schemas.xmlsoap.org/soap/envelope/#Header" typeDisplayText="Header" factoryId="WSDL" unsettable="true">
+          <properties name="ELEMENT_URI" stringValue="http://schemas.xmlsoap.org/soap/envelope/#Header"/>
+        </elements>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Body" iD="1385333036884-59" type="http://schemas.xmlsoap.org/soap/envelope/#Body" typeDisplayText="Body" factoryId="WSDL" unsettable="true">
+          <properties name="ELEMENT_URI" stringValue="http://schemas.xmlsoap.org/soap/envelope/#Body"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="getCustomer" iD="1385333036890-62" type="http://workshop.com.br/legado/service#getCustomer_._type" typeDisplayText="anyType" factoryId="WSDL">
+            <properties name="ELEMENT_URI" stringValue="http://workshop.com.br/legado/service#getCustomer"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="id" iD="1385333036890-63" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="100">
+              <properties name="ELEMENT_URI" stringValue="#id"/>
+            </elements>
+          </elements>
+        </elements>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueSequence" name="any" iD="1385333036884-61" type="anyType" typeDisplayText="anyType" factoryId="WSDL" abstractType="commonj.sdo.Sequence" abstractTypeDisplayText=" "/>
+      </parameters>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+  <http_1:DeploymentStatus iD="1385333077565-108" parentID="1385333077384-100" timestamp="1385333077565" log="[Info]  Begin deploying message flows&#xD;&#xA;[Info]  Deploying the message flow application&#xD;&#xA;[Info]  Initializing test message monitors...&#xD;&#xA;[Info]  Test client is ready to send and monitor messages.&#xD;&#xA;[Info]  Starting message flows&#xD;&#xA;[Info]  Message flows deployment successfully completed" status="OK" totalWork="10" worked="10" scope="/0/@scopes.0"/>
+  <com.ibm.wbit.comptest.common.models.event:StartEvent name="Starting" iD="1385333077690-126" readOnly="true" clientID="1385332862907-0" parentID="1385333077384-100" timestamp="1385333077690" invokeCommandId="1385333077689-117" children="/5 /6"/>
+  <http:HTTPInformationEvent name="Sending Message to &quot;SOAP Input&quot;" iD="1385333077704-133" readOnly="true" clientID="1385332862907-0" parentID="1385333077690-126" timestamp="1385333077704" invokeCommandId="1385333077689-118" endpoint="http://localhost:7800/legacy/customer">
+    <message xsi:type="model2:TestMessage" iD="1385333036882-55">
+      <properties name="messageSource" stringValue="structureView"/>
+      <properties name="SOAP_VERSION" stringValue="SOAP 1.1"/>
+      <properties name="WSDL_URI" stringValue="platform:/resource/ClienteServiceLegacy/CustomerService.wsdl"/>
+      <properties name="WSDL_OPERATION_NAME" stringValue="getCustomer"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText"/>
+      <properties name="SOAP_OPERATION" stringValue="http://workshop.com.br/legado/service/NewOperation"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Envelope" iD="1385333036884-56" type="http://schemas.xmlsoap.org/soap/envelope/#Envelope" typeDisplayText="Envelope" factoryId="WSDL">
+        <properties name="ELEMENT_URI" stringValue="http://schemas.xmlsoap.org/soap/envelope/#Envelope"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Header" iD="1385333036884-57" type="http://schemas.xmlsoap.org/soap/envelope/#Header" typeDisplayText="Header" factoryId="WSDL" unsettable="true">
+          <properties name="ELEMENT_URI" stringValue="http://schemas.xmlsoap.org/soap/envelope/#Header"/>
+        </elements>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Body" iD="1385333036884-59" type="http://schemas.xmlsoap.org/soap/envelope/#Body" typeDisplayText="Body" factoryId="WSDL" unsettable="true">
+          <properties name="ELEMENT_URI" stringValue="http://schemas.xmlsoap.org/soap/envelope/#Body"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="getCustomer" iD="1385333036890-62" type="http://workshop.com.br/legado/service#getCustomer_._type" typeDisplayText="anyType" factoryId="WSDL">
+            <properties name="ELEMENT_URI" stringValue="http://workshop.com.br/legado/service#getCustomer"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="id" iD="1385333036890-63" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="100">
+              <properties name="ELEMENT_URI" stringValue="#id"/>
+            </elements>
+          </elements>
+        </elements>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueSequence" name="any" iD="1385333036884-61" type="anyType" typeDisplayText="anyType" factoryId="WSDL" abstractType="commonj.sdo.Sequence" abstractTypeDisplayText=" "/>
+      </parameters>
+    </message>
+  </http:HTTPInformationEvent>
+  <http:HTTPReplyEvent name="Received HTTP reply message for &quot;SOAP Input&quot;" iD="1385333077847-141" readOnly="true" clientID="1385332862907-0" parentID="1385333077690-126" timestamp="1385333077847" invokeCommandId="1385333077689-118" endpoint="http://localhost:7800/legacy/customer">
+    <message xsi:type="model2:TestMessage" iD="1385333077847-142">
+      <properties name="messageSource" stringValue="structureView"/>
+      <properties name="plainText" stringValue="%3C%3Fxml+version%3D%221.0%22+encoding%3D%22utf-8%22%3F%3E%3Csoapenv%3AEnvelope+xmlns%3Asoapenv%3D%22http%3A%2F%2Fschemas.xmlsoap.org%2Fsoap%2Fenvelope%2F%22%3E%3Csoapenv%3ABody%3E%3Cio%3AgetCustomerResponse+xmlns%3Aio%3D%22http%3A%2F%2Fworkshop.com.br%2Flegado%2Fservice%22+xmlns%3Aio2%3D%22http%3A%2F%2Fworkshop.com.br%2Flegacy%2Fschemas%2Fcustomer%22%3E%3Ccustomer%3E%3Cio2%3AidCustomer%3E100%3C%2Fio2%3AidCustomer%3E%3Cio2%3Aname%3EFillipe%3C%2Fio2%3Aname%3E%3Cio2%3Ae_mail%3Efimassuda%40gmail.com%3C%2Fio2%3Ae_mail%3E%3Cio2%3Agender%3E0%3C%2Fio2%3Agender%3E%3Cio2%3Astreet%3EAv+Paulista%3C%2Fio2%3Astreet%3E%3Cio2%3Astreet_number%3E900%3C%2Fio2%3Astreet_number%3E%3Cio2%3Acity%3ESao+Paulo%3C%2Fio2%3Acity%3E%3Cio2%3Astate%3ESP%3C%2Fio2%3Astate%3E%3C%2Fcustomer%3E%3C%2Fio%3AgetCustomerResponse%3E%3C%2Fsoapenv%3ABody%3E%3C%2Fsoapenv%3AEnvelope%3E"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="soapenv:Envelope" iD="1385333077849-143">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="xmlns:soapenv" iD="1385333077849-157" value="http://schemas.xmlsoap.org/soap/envelope/"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="soapenv:Body" iD="1385333077849-144">
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="io:getCustomerResponse" iD="1385333077849-145">
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="xmlns:io2" iD="1385333077849-156" value="http://workshop.com.br/legacy/schemas/customer"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="xmlns:io" iD="1385333077849-155" value="http://workshop.com.br/legado/service"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="customer" iD="1385333077849-146">
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="io2:idCustomer" iD="1385333077849-147" value="100"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="io2:name" iD="1385333077849-148" value="Fillipe"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="io2:e_mail" iD="1385333077849-149" value="fimassuda@gmail.com"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="io2:gender" iD="1385333077849-150" value="0"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="io2:street" iD="1385333077849-151" value="Av Paulista"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="io2:street_number" iD="1385333077849-152" value="900"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="io2:city" iD="1385333077849-153" value="Sao Paulo"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="io2:state" iD="1385333077849-154" value="SP"/>
+            </elements>
+          </elements>
+        </elements>
+      </parameters>
+    </message>
+  </http:HTTPReplyEvent>
+  <com.ibm.wbit.comptest.common.models.event:EndEvent name="Stopped" iD="1385333077849-158" readOnly="true" clientID="1385332862907-0" parentID="1385333077384-100" timestamp="1385333077849" invokeCommandId="1385333077689-118"/>
+</xmi:XMI>

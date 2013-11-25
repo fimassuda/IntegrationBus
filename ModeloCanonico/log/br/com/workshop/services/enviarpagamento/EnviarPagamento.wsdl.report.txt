@@ -1,0 +1,22 @@
+
+
+Importing file: D:\Material\IIB\ModeloCanonico\contracts\EnviarPagamento.wsdl
+
+Copying source WSDL EnviarPagamento.wsdl to EnviarPagamento.wsdl.
+The WSDL import will proceed with bindings EnviarPagamentoSOAP.
+Creating wsdl schema document for file:///D:/Material/IIB/ModeloCanonico/contracts/EnviarPagamento.wsdl.
+Parsing wsdl binding {http://workshop.com.br/services/EnviarPagamento}EnviarPagamentoSOAP.
+Parsing wsdl binding input NewOperation.
+Parsing wsdl binding output NewOperation.
+Processing doc style for operation NewOperation.
+Populating WSDL schema EnviarPagamento.xsd.
+Creating file EnviarPagamento.xsd in the workspace.
+Creating file EnviarPagamento_InlineSchema1.xsd in the workspace.
+
+Elapsed time processing this message definition file: 0.822 seconds
+Number of warnings for this message definition file: 0
+
+
+Number of files processed: 1
+
+

@@ -1,0 +1,15 @@
+BROKER SCHEMA br.com.workshop
+DECLARE ns NAMESPACE 'http://workshop.com.br/ClienteService';
+
+
+CREATE COMPUTE MODULE ClienteResource_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		SET OutputRoot.Properties = InputRoot.Properties;
+		SET OutputRoot.XMLNSC.ns:consultarCliente.idCliente = SUBSTRING(InputLocalEnvironment.HTTP.Input.RequestLine.RequestURI After 'cliente/'); 
+		
+		RETURN TRUE;
+	END;
+
+END MODULE;

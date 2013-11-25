@@ -1,0 +1,22 @@
+BROKER SCHEMA br.com.workshop
+DECLARE ns7 NAMESPACE 'http://workshop.com.br/schemas/cliente';
+
+
+CREATE COMPUTE MODULE ClienteResource_Compute1
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		SET OutputRoot.JSON.Data.id = InputRoot.XMLNSC.ns:consultarClienteResponse.cliente.ns7:id;
+		SET OutputRoot.JSON.Data.nome = InputRoot.XMLNSC.ns:consultarClienteResponse.cliente.ns7:nome;
+		SET OutputRoot.JSON.Data.email = InputRoot.XMLNSC.ns:consultarClienteResponse.cliente.ns7:email;
+		SET OutputRoot.JSON.Data.sexo = InputRoot.XMLNSC.ns:consultarClienteResponse.cliente.ns7:sexo;
+		SET OutputRoot.JSON.Data.endereco.rua = InputRoot.XMLNSC.ns:consultarClienteResponse.cliente.ns7:endereco.ns7:rua;
+		SET OutputRoot.JSON.Data.endereco.numero = InputRoot.XMLNSC.ns:consultarClienteResponse.cliente.ns7:endereco.ns7:numero;
+		SET OutputRoot.JSON.Data.endereco.cidade = InputRoot.XMLNSC.ns:consultarClienteResponse.cliente.ns7:endereco.ns7:cidade;
+		SET OutputRoot.JSON.Data.endereco.estado = InputRoot.XMLNSC.ns:consultarClienteResponse.cliente.ns7:endereco.ns7:estado;
+		
+		
+		RETURN TRUE;
+	END;
+
+END MODULE;

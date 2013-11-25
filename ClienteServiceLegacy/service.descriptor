@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service:services xmlns:service="http://com.ibm.etools.mft.service">
+  <service:service implementation="gen/ClienteServiceLegacy.msgflow" name="ClienteServiceLegacy" portType="CustomerService" wsdlFileName="CustomerService.wsdl">
+    <service:operations>
+      <service:operation name="getCustomer" type="request-response">
+        <service:flows>
+          <service:flow location="gen/getCustomer_Request_Response.subflow" type="Request_Response"/>
+        </service:flows>
+      </service:operation>
+    </service:operations>
+    <service:errors>
+      <service:flows>
+        <service:flow location="gen/ClienteServiceLegacyInputHTTPTimeoutHandler.subflow" type="Timeout"/>
+        <service:flow location="gen/ClienteServiceLegacyInputFailureHandler.subflow" type="Failure"/>
+        <service:flow location="gen/ClienteServiceLegacyInputCatchHandler.subflow" type="Catch"/>
+      </service:flows>
+    </service:errors>
+  </service:service>
+</service:services>
