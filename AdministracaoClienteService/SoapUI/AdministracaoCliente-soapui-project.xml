@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="AdministracaoCliente" resourceRoot="" soapui-version="4.6.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="AdministracaoClienteSOAP" type="wsdl" bindingName="{http://workshop.com.br/ClienteService}AdministracaoClienteSOAP" soapVersion="1_1" anonymous="optional" definition="file:/D:/Material/IIB/AdministracaoCliente/contracts/AdministracaoCliente.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\D:\Material\IIB\AdministracaoCliente\contracts\AdministracaoCliente.wsdl"><con:part><con:url>file:\D:\Material\IIB\AdministracaoCliente\contracts\AdministracaoCliente.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="AdministracaoCliente" targetNamespace="http://workshop.com.br/ClienteService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://workshop.com.br/ClienteService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://workshop.com.br/ClienteService" xmlns:pref="http://workshop.com.br/schemas/cliente">
+      <xsd:import schemaLocation="../schemas/Cliente.xsd" namespace="http://workshop.com.br/schemas/cliente"/>
+      <xsd:element name="consultarCliente">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="idCliente" type="xsd:integer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="consultarClienteResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="cliente" type="pref:ClienteType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="consultarClienteRequest">
+    <wsdl:part element="tns:consultarCliente" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="consultarClienteResponse">
+    <wsdl:part element="tns:consultarClienteResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="AdministracaoCliente">
+    <wsdl:operation name="consultarCliente">
+      <wsdl:input message="tns:consultarClienteRequest"/>
+      <wsdl:output message="tns:consultarClienteResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AdministracaoClienteSOAP" type="tns:AdministracaoCliente">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="consultarCliente">
+      <soap:operation soapAction="http://workshop.com.br/ClienteService/NewOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AdministracaoCliente">
+    <wsdl:port binding="tns:AdministracaoClienteSOAP" name="AdministracaoClienteSOAP">
+      <soap:address location="http://localhost:7800/ClienteService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:\D:\Material\IIB\AdministracaoCliente\schemas\Cliente.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://workshop.com.br/schemas/cliente" elementFormDefault="qualified" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://workshop.com.br/schemas/cliente">
+  <xsd:annotation>
+    <xsd:documentation>Modelo de cliente</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType name="ClienteType">
+    <xsd:sequence>
+      <xsd:element name="id" type="xsd:integer" minOccurs="0"/>
+      <xsd:element name="nome" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="email" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="sexo" type="tns:SexoType" minOccurs="0"/>
+      <xsd:element name="endereco" type="tns:EnderecoType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="SexoType">
+    <xsd:annotation>
+      <xsd:documentation>MASCULINO
+				FEMININO</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="MASCULINO"/>
+      <xsd:enumeration value="FEMININO"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="EnderecoType">
+    <xsd:sequence>
+      <xsd:element name="rua" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="numero" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="cidade" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="estado" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:7800/ClienteService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="http://workshop.com.br/ClienteService/NewOperation" name="consultarCliente" bindingOperationName="consultarCliente" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7800/ClienteService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cli="http://workshop.com.br/ClienteService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cli:consultarCliente>
+         <idCliente>100</idCliente>
+      </cli:consultarCliente>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://workshop.com.br/ClienteService/NewOperation"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="request" name="consultarCliente - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>AdministracaoClienteSOAP</con:interface><con:operation>consultarCliente</con:operation><con:request name="consultarCliente - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7800/ClienteService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cli="http://workshop.com.br/ClienteService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cli:consultarCliente>
+         <idCliente>100</idCliente>
+      </cli:consultarCliente>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://workshop.com.br/ClienteService/NewOperation"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest name="LoadTest 1"><con:settings/><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/></con:soapui-project>

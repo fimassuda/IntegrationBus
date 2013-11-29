@@ -4,15 +4,23 @@ CREATE COMPUTE MODULE SoapFault_Compute
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
 		
-		DECLARE soapenv NAMESPACE 'http://www.w3.org/2003/05/soap-envelope';
+		
+		DECLARE soapenv NAMESPACE 'http://schemas.xmlsoap.org/soap/envelope/';
 		DECLARE xml     NAMESPACE 'http://www.w3.org/XML/1998/namespace';
-		DECLARE myNS    NAMESPACE 'http://myNS';
+		
+		--SET OutputRoot = InputRoot;
+		
+		SET OutputRoot.Properties = InputRoot.Properties;
+		--SET OutputRoot.HTTPInputHeader = InputRoot.HTTPInputHeader;
 		
 		SET OutputRoot.SOAP.Context.Namespace.(SOAP.NamespaceDecl)xmlns:soapenv = soapenv;
-		SET OutputRoot.SOAP.Body.soapenv:Fault.faultcode = 'soapenv:Server';
-		SET OutputRoot.SOAP.Body.soapenv:Fault.faultstring = 'AdministracaoCliente error';
-		SET OutputRoot.SOAP.Body.soapenv:Fault.faultactor = 'SOAPFlow';
-		SET OutputRoot.SOAP.Body.soapenv:Fault.detail.Text = 'Erro no servico AdministracaoCliente';
+		--SET OutputLocalEnvironment.Destination.SOAP.Reply.Transport.HTTP.ReplyStatusCode = 500;
+		--DELETE FIELD OutputRoot.SOAP.Body.ns:consultarCliente;
+		SET OutputRoot.XMLNSC.soapenv:Fault.faultcode = 'soapenv:Server';
+		SET OutputRoot.XMLNSC.soapenv:Fault.faultstring = 'AdministracaoCliente error';
+		SET OutputRoot.XMLNSC.soapenv:Fault.faultactor = 'SOAPFlow';
+		SET OutputRoot.XMLNSC.soapenv:Fault.detail.Text = 'Erro no servico AdministracaoCliente';
+		
 		
 		RETURN TRUE;
 	END;
